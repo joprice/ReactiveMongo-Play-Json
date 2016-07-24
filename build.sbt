@@ -6,13 +6,13 @@ val buildVersion = "0.12-RC0"
 
 version := s"$buildVersion-play24"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-target:jvm-1.8")
 
 scalacOptions in (Compile, doc) := Seq("-Ywarn-unused-import", "-unchecked", "-deprecation")
 
-crossScalaVersions := Seq("2.11.7")
+crossScalaVersions := Seq(scalaVersion.value)
 
 crossVersion := CrossVersion.binary
 
@@ -59,6 +59,7 @@ lazy val publishSettings = {
         url("http://www.apache.org/licenses/LICENSE-2.0"))
     },
     homepage := Some(url("http://reactivemongo.org")),
+    autoAPIMappings := true,
     pomExtra := (
       <scm>
         <url>git://github.com/ReactiveMongo/ReactiveMongo-Play-Json.git</url>
